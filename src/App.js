@@ -1,4 +1,4 @@
-import { makeRouter, routeName } from "../router.js";
+import { makeRouter, routeName } from "./router.js";
 import ColorPage from "./Colors/ColorsPage.js";
 import HexGradientPage from "./Hex-Gradient/HexGradientPage.js";
 import Nav from "./Nav.js";
