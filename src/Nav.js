@@ -1,5 +1,4 @@
-import { push } from "../router.js";
-import { DOMAIN } from "./Constant.js";
+import { push } from "./router.js";
 
 export default function Nav({ $target, initialState }) {
   // DOM Create
