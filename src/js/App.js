@@ -4,6 +4,7 @@ import HexGradientPage from "./Hex-Gradient/HexGradientPage.js";
 import Nav from "./Nav.js";
 import RandomQuoteGeneratorPage from "./RandomQuoteGenerator/RandomQuoteGeneratorPage.js";
 import TheMessagePage from "./TheMessage/TheMessagePage.js";
+import HomePage from "./Home/HomePage.js";
 
 export default function App({ $target, initialState }) {
   // State
@@ -16,6 +17,8 @@ export default function App({ $target, initialState }) {
   // Component
 
   const nav = new Nav({ $target, initialState: this.state });
+
+  const homePage = new HomePage({ $target });
 
   const colorPage = new ColorPage({ $target });
 
@@ -33,6 +36,7 @@ export default function App({ $target, initialState }) {
     nav.setState({ ...this.state, selectedPage: pathname || null });
     switch (pathname.split("/")[1]) {
       case routeName.home:
+        homePage.render();
         break;
       case routeName.color:
         colorPage.render();
