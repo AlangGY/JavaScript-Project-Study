@@ -10,15 +10,22 @@ export default function RandomQuoteGeneratorPage({ $target }) {
       <p class="quote-text">...</p>
       <p class="quote-author">Author</p>
     </div>
-    <button>Generate Quote</button>
+    <button class="generate-quote">Generate Quote</button>
     `;
   };
 
   $page.addEventListener("click", async (e) => {
-    const { quote, name } = await getRandomQuote();
-    const $quoteContainer = $page.querySelector(".quote-container");
-    $quoteContainer.querySelector(".quote-text").innerText = quote;
-    $quoteContainer.querySelector(".quote-author").innerText = name;
+    const className = e.target.className;
+    if (className === "generate-quote") {
+      try {
+        const { quote, name } = await getRandomQuote();
+        const $quoteContainer = $page.querySelector(".quote-container");
+        $quoteContainer.querySelector(".quote-text").innerText = quote;
+        $quoteContainer.querySelector(".quote-author").innerText = name;
+      } catch (e) {
+        console.error(e);
+      }
+    }
   });
 
   const getRandomQuote = async () => {
@@ -41,7 +48,7 @@ export default function RandomQuoteGeneratorPage({ $target }) {
         return res.json();
       }
     } catch (e) {
-      throw Error(e);
+      alert("당일 Quote API 호출이 너무 많았습니다. 나중에 다시 시도해주세요");
     }
   };
 }
