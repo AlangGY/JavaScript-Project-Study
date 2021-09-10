@@ -16,7 +16,6 @@ export default function Nav({ $target, initialState }) {
   this.render = () => {
     $target.appendChild($nav);
     const { pages, selectedPage } = this.state;
-    console.log(selectedPage, pages);
     $nav.innerHTML = `
     ${pages
       .map(

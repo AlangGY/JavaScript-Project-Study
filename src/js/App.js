@@ -2,6 +2,8 @@ import { makeRouter, routeName } from "./router.js";
 import ColorPage from "./Colors/ColorsPage.js";
 import HexGradientPage from "./Hex-Gradient/HexGradientPage.js";
 import Nav from "./Nav.js";
+import RandomQuoteGeneratorPage from "./RandomQuoteGenerator/RandomQuoteGeneratorPage.js";
+import TheMessagePage from "./TheMessage/TheMessagePage.js";
 
 export default function App({ $target, initialState }) {
   // State
@@ -19,11 +21,10 @@ export default function App({ $target, initialState }) {
 
   const hexGradientPage = new HexGradientPage({ $target });
 
-  // Render
-  this.render = () => {
-    const { pages } = this.state;
-    // $target.innerHTML = ``;
-  };
+  const randomQuoteGeneratorPage = new RandomQuoteGeneratorPage({ $target });
+
+  const theMessagePage = new TheMessagePage({ $target });
+
   // Route
 
   this.route = () => {
@@ -39,11 +40,15 @@ export default function App({ $target, initialState }) {
       case routeName.hexGradient:
         hexGradientPage.render();
         break;
+      case routeName.randomQuoteGeneratorPage:
+        randomQuoteGeneratorPage.render();
+        break;
+      case routeName.theMessage:
+        theMessagePage.render();
     }
   };
 
   this.init = () => {
-    this.render();
     this.route();
     makeRouter(() => this.route());
   };

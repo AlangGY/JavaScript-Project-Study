@@ -1,0 +1,135 @@
+.TheMessage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: radial-gradient(#ecf0f1, #7fc1ee);
+}
+
+.TheMessage .messageContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  border-radius: 10px;
+  padding: 20px;
+  padding-bottom: 50px;
+  width: 40%;
+  min-height: 300px;
+  row-gap: 10px;
+  background-color: #deeff3;
+  -webkit-box-shadow: 0px 0px 7px 0px #bcbcbc;
+  box-shadow: 0px 0px 7px 0px #bcbcbc;
+  transition: opacity 1s ease-in;
+}
+.TheMessage .message__header {
+  margin: 0;
+  margin-bottom: 10px;
+  padding: 0;
+  display: flex;
+  width: 80%;
+  align-self: center;
+  text-align: center;
+  flex-direction: column;
+  font-size: 25px;
+}
+.TheMessage .message__header::after {
+  content: "";
+  height: 2px;
+  border-radius: 5px;
+  background-color: black;
+  opacity: 0.3;
+  margin-top: 10px;
+}
+.TheMessage .message__label {
+  font-size: 14px;
+}
+.TheMessage form {
+  width: 100%;
+  min-height: 100px;
+}
+.TheMessage form .wrapper {
+  display: flex;
+  align-items: center;
+}
+.TheMessage form::after {
+  content: "";
+  display: block;
+  margin-top: 10px;
+  height: 1px;
+  width: 100%;
+  background-color: black;
+  opacity: 0.3;
+}
+.TheMessage .message__button {
+  margin: 0;
+  width: 30px;
+}
+
+.TheMessage .message__input {
+  margin: 0;
+  display: inline-block;
+  width: 100%;
+  border-radius: 5px;
+  border: none;
+  height: 30px;
+}
+.TheMessage .message__input:focus {
+  outline: rgb(126, 156, 185) 1px solid;
+}
+.TheMessage .message__submit {
+  display: block;
+  margin-top: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 5px 10px 5px 10px;
+  background-color: rgb(170, 210, 236);
+  color: rgb(85, 85, 85);
+}
+.TheMessage .message__result {
+  align-self: center;
+  text-align: center;
+  opacity: 1;
+  transition: all 1s ease-in;
+  min-height: 30px;
+}
+.TheMessage .show {
+  animation: show 0.8s 1 ease-in-out;
+}
+.TheMessage .send {
+  animation: send 0.8s 1 ease-in-out;
+}
+.TheMessage button {
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  -webkit-box-shadow: 0px 0px 1px 1px #e0e0e0;
+  box-shadow: 0px 0px 1px 1px #e0e0e0;
+  transition: background-color 0.1s ease-in-out;
+}
+.TheMessage button:hover {
+  background-color: rgba(255, 255, 255, 0.6);
+  color: black;
+}
+
+@keyframes show {
+  0% {
+    opacity: 0;
+    transform: translateX(500px);
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes send {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(300px) scale(1.5);
+  }
+}
