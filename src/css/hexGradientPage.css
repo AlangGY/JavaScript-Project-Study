@@ -1,48 +1,3 @@
-body {
-  margin: 0;
-}
-.App {
-  width: 100vw;
-  height: 100vh;
-}
-.Navigator {
-  display: flex;
-  padding: 5px;
-  position: fixed;
-  top: 0;
-  width: 100%;
-  transition: background-color 0.2s ease-in-out;
-}
-.Navigator:hover {
-  background-color: white;
-}
-.Navigator > * {
-  margin-right: 10px;
-}
-.Link {
-  display: inline-block;
-  cursor: pointer;
-  text-align: center;
-  border-radius: 10px;
-  padding: 5px;
-}
-.Link.selected {
-  font-weight: 700;
-}
-.Link:hover {
-  background-color: rgba(0, 0, 0, 0.288);
-}
-
-.Page {
-  width: 100%;
-  height: 100%;
-}
-
-.Color {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 .HexGradient {
   display: flex;
   flex-direction: column;
@@ -58,8 +13,6 @@ body {
   animation-duration: 8s;
   animation-iteration-count: infinite;
 }
-
-.Color button,
 .HexGradient button {
   width: 100px;
   height: 30px;
@@ -71,7 +24,6 @@ body {
   -webkit-box-shadow: 0px 0px 2px 2px #424242;
   box-shadow: 0px 0px 2px 2px #424242;
 }
-.Color button:hover,
 .HexGradient button:hover {
   background-color: #424242;
   color: white;

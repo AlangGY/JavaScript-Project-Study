@@ -5,6 +5,8 @@ export const routeName = {
   home: "",
   color: "color",
   hexGradient: "hex-gradient",
+  randomQuoteGeneratorPage: "random-quote-generator",
+  theMessage: "the-message",
 };
 
 export const makeRouter = (onRoute) => {
