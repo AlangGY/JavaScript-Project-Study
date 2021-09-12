@@ -7,6 +7,7 @@ export const routeName = {
   hexGradient: "hex-gradient",
   randomQuoteGeneratorPage: "random-quote-generator",
   theMessage: "the-message",
+  Counter: "counter",
 };
 
 export const makeRouter = (onRoute) => {

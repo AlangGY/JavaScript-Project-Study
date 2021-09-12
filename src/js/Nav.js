@@ -4,6 +4,7 @@ export default function Nav({ $target, initialState }) {
   // DOM Create
   const $nav = document.createElement("nav");
   $nav.className = "Navigator";
+  $target.appendChild($nav);
 
   this.state = initialState;
 
@@ -14,7 +15,6 @@ export default function Nav({ $target, initialState }) {
   };
 
   this.render = () => {
-    $target.appendChild($nav);
     const { pages, selectedPage } = this.state;
     $nav.innerHTML = `
     ${pages
@@ -29,6 +29,8 @@ export default function Nav({ $target, initialState }) {
       .join("")}
 `;
   };
+
+  this.render();
 
   $nav.addEventListener("click", (e) => {
     const $page = e.target.closest(".Link");

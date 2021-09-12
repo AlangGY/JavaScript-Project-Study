@@ -4,6 +4,7 @@
 @import "./hexGradientPage.css";
 @import "./randomQuoteGeneratorPage.css";
 @import "./theMessagePage.css";
+@import "./counterPage.css";
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,

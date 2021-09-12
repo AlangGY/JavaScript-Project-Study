@@ -5,35 +5,47 @@ import Nav from "./Nav.js";
 import RandomQuoteGeneratorPage from "./RandomQuoteGenerator/RandomQuoteGeneratorPage.js";
 import TheMessagePage from "./TheMessage/TheMessagePage.js";
 import HomePage from "./Home/HomePage.js";
+import { pages } from "./Constant.js";
+import CounterPage from "./Counter/CounterPage.js";
 
-export default function App({ $target, initialState }) {
+export default function App({ $target }) {
+  const $content = document.createElement("content");
+  $content.className = "Content";
   // State
-  this.state = initialState;
+  this.state = { pages, selectedPage: null };
 
   this.setState = (nextState) => {
     this.state = nextState;
+
+    nav.setState(this.state);
   };
 
   // Component
 
   const nav = new Nav({ $target, initialState: this.state });
 
-  const homePage = new HomePage({ $target });
+  $target.appendChild($content);
 
-  const colorPage = new ColorPage({ $target });
+  const homePage = new HomePage({ $target: $content });
 
-  const hexGradientPage = new HexGradientPage({ $target });
+  const colorPage = new ColorPage({ $target: $content });
 
-  const randomQuoteGeneratorPage = new RandomQuoteGeneratorPage({ $target });
+  const hexGradientPage = new HexGradientPage({ $target: $content });
 
-  const theMessagePage = new TheMessagePage({ $target });
+  const randomQuoteGeneratorPage = new RandomQuoteGeneratorPage({
+    $target: $content,
+  });
+
+  const theMessagePage = new TheMessagePage({ $target: $content });
+
+  const counterPage = new CounterPage({ $target: $content });
 
   // Route
 
   this.route = () => {
-    $target.innerHTML = "";
+    $content.innerHTML = "";
     const { pathname } = window.location;
-    nav.setState({ ...this.state, selectedPage: pathname || null });
+    this.setState({ ...this.state, selectedPage: pathname || null });
     switch (pathname.split("/")[1]) {
       case routeName.home:
         homePage.render();
@@ -49,6 +61,8 @@ export default function App({ $target, initialState }) {
         break;
       case routeName.theMessage:
         theMessagePage.render();
+      case routeName.Counter:
+        counterPage.render();
     }
   };
 
